@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NexaCard - Digital Business Identity | One Tap. Infinite Connections.">
+<meta name="theme-color" content="#111827">
+<title>NexaCard | Digital Business Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   NexaCard - Liquid Crystal Interface
+   Premium Digital Business Identity
+   ============================================ */
+:root {
+  --midnight: #111827;
+  --midnight-light: #1F2937;
+  --midnight-lighter: #374151;
+  --ice-blue: #7DD3FC;
+  --ice-blue-dim: rgba(125, 211, 252, 0.15);
+  --emerald-mint: #10B981;
+  --emerald-mint-dim: rgba(16, 185, 129, 0.15);
+  --sunset-orange: #FB923C;
+  --sunset-orange-dim: rgba(251, 146, 60, 0.15);
+  --lavender: #A78BFA;
+  --lavender-dim: rgba(167, 139, 250, 0.15);
+  --crystal-white: #F8FAFC;
+  --glass-bg: rgba(31, 41, 55, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.04);
+  --card-radius: 1.5rem;
+  --card-radius-lg: 2rem;
+  --transition-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ice-blue) var(--midnight);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--midnight);
+  color: var(--crystal-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  cursor: default;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--midnight);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ice-blue);
+  border-radius: 3px;
+}
+
+/* Morphing Background Blobs */
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: blobMorph 20s ease-in-out infinite;
+}
+.bg-blob:nth-child(1) {
+  width: 500px;
+  height: 500px;
+  background: var(--ice-blue);
+  top: -10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+.bg-blob:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  background: var(--lavender);
+  top: 40%;
+  right: -8%;
+  animation-delay: -7s;
+}
+.bg-blob:nth-child(3) {
+  width: 350px;
+  height: 350px;
+  background: var(--emerald-mint);
+  bottom: -10%;
+  left: 20%;
+  animation-delay: -14s;
+}
+.bg-blob:nth-child(4) {
+  width: 300px;
+  height: 300px;
+  background: var(--sunset-orange);
+  top: 60%;
+  left: -5%;
+  animation-delay: -3s;
+}
+@keyframes blobMorph {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 50% 50% 50% 50%;
+  }
+  25% {
+    transform: translate(60px, -80px) scale(1.15) rotate(5deg);
+    border-radius: 40% 60% 60% 40%;
+  }
+  50% {
+    transform: translate(-40px, -30px) scale(0.9) rotate(-3deg);
+    border-radius: 60% 40% 40% 60%;
+  }
+  75% {
+    transform: translate(-70px, 50px) scale(1.1) rotate(4deg);
+    border-radius: 35% 65% 55% 45%;
+  }
+}
+
+/* Floating Light Orbs */
+.light-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.light-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+  animation: orbFloat 12s ease-in-out infinite;
+}
+.light-orb:nth-child(1) {
+  width: 250px;
+  height: 250px;
+  top: 15%;
+  left: 10%;
+}
+.light-orb:nth-child(2) {
+  width: 180px;
+  height: 180px;
+  top: 50%;
+  right: 12%;
+  animation-delay: -4s;
+}
+.light-orb:nth-child(3) {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  left: 30%;
+  animation-delay: -8s;
+}
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(30px, -40px);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translate(-20px, 30px);
+    opacity: 0.3;
+  }
+}
+
+/* ============================================
+   SPLASH SCREEN
+   ============================================ */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--midnight);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.splash-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.splash-logo {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--ice-blue), var(--lavender));
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--midnight);
+  font-weight: 800;
+  font-family: var(--font-display);
+  animation: logoForm 1s ease forwards;
+  box-shadow: 0 20px 60px rgba(125, 211, 252, 0.3);
+}
+@keyframes logoForm {
+  0% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+  60% {
+    transform: scale(1.1) rotate(3deg);
+    opacity: 1;
+    border-radius: 20px;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    border-radius: 28px;
+  }
+}
+.splash-ring {
+  margin-top: 2rem;
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-top-color: var(--ice-blue);
+  border-right-color: var(--lavender);
+  border-radius: 50%;
+  animation: ringSpin 1s linear infinite;
+}
+@keyframes ringSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.splash-text {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  color: var(--ice-blue);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+}
+.splash-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 120px;
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.05), transparent);
+  animation: waveSlide 3s ease-in-out infinite;
+}
+@keyframes waveSlide {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* ============================================
+   FLOATING DOCK NAVIGATION
+   ============================================ */
+.floating-dock {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: 3rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.dock-item {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.35s var(--transition-smooth);
+  text-decoration: none;
+  color: var(--crystal-white);
+  font-size: 1.2rem;
+  position: relative;
+}
+.dock-item:hover,
+.dock-item.active {
+  background: var(--ice-blue-dim);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(125, 211, 252, 0.25);
+}
+.dock-item .dock-tooltip {
+  position: absolute;
+  bottom: 55px;
+  background: var(--midnight-lighter);
+  color: var(--crystal-white);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-family: var(--font-mono);
+}
+.dock-item:hover .dock-tooltip {
+  opacity: 1;
+  bottom: 50px;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 7rem;
+}
+.page-section {
+  padding: 3rem 0;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ice-blue);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--crystal-white), var(--ice-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   GLASS CARDS
+   ============================================ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  padding: 2rem;
+  transition: all 0.4s var(--transition-smooth);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   MAIN DIGITAL CARD
+   ============================================ */
+.digital-card {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: transform 0.1s ease-out;
+}
+.digital-card .card-inner {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+.digital-card .card-inner::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle at 30% 30%, rgba(125, 211, 252, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.profile-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--ice-blue), var(--lavender), var(--emerald-mint));
+  margin: 0 auto 1.5rem;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+@keyframes ringPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(125, 211, 252, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.5);
+  }
+}
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--midnight-lighter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  border: 3px solid var(--midnight);
+}
+.card-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.card-role {
+  color: var(--ice-blue);
+  font-weight: 500;
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+.card-company {
+  color: var(--lavender);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+.card-bio {
+  color: rgba(248, 250, 252, 0.6);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+.status-available {
+  background: var(--emerald-mint-dim);
+  color: var(--emerald-mint);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald-mint);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--emerald-mint);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 12px var(--emerald-mint);
+  }
+}
+.card-location {
+  font-size: 0.8rem;
+  color: rgba(248, 250, 252, 0.5);
+  margin-top: 0.5rem;
+}
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.65rem 1.3rem;
+  border-radius: 2.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.35s var(--transition-smooth);
+  font-family: var(--font-body);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--ice-blue), var(--lavender));
+  color: var(--midnight);
+  box-shadow: 0 6px 20px rgba(125, 211, 252, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(125, 211, 252, 0.4);
+}
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: var(--crystal-white);
+}
+.btn-outline:hover {
+  border-color: var(--ice-blue);
+  background: var(--ice-blue-dim);
+  color: var(--ice-blue);
+}
+.btn-magnetic {
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+/* Ripple */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleAnim 0.7s ease-out;
+  pointer-events: none;
+}
+@keyframes rippleAnim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   SOCIAL HUB
+   ============================================ */
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+.social-icon-item {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.35s var(--transition-smooth);
+  position: relative;
+  text-decoration: none;
+}
+.social-icon-item:hover {
+  transform: scale(1.2);
+  border-color: var(--ice-blue);
+  box-shadow: 0 10px 30px rgba(125, 211, 252, 0.3);
+  background: var(--ice-blue-dim);
+  z-index: 5;
+}
+.social-icon-item .social-tooltip {
+  position: absolute;
+  bottom: -30px;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--ice-blue);
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.social-icon-item:hover .social-tooltip {
+  opacity: 1;
+  bottom: -25px;
+}
+
+/* ============================================
+   SERVICES
+   ============================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+.service-card {
+  text-align: center;
+  cursor: pointer;
+}
+.service-card .service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.service-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.service-card p {
+  color: rgba(248, 250, 252, 0.5);
+  font-size: 0.82rem;
+}
+
+/* ============================================
+   PORTFOLIO SLIDER
+   ============================================ */
+.portfolio-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.portfolio-slider::-webkit-scrollbar {
+  display: none;
+}
+.portfolio-slide {
+  min-width: 280px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.portfolio-slide .slide-img {
+  width: 100%;
+  height: 170px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--midnight-lighter), var(--midnight-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+.portfolio-slide:hover .slide-img {
+  transform: scale(1.04);
+}
+.portfolio-slide .slide-tech {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.tech-tag {
+  padding: 0.2rem 0.6rem;
+  background: var(--ice-blue-dim);
+  color: var(--ice-blue);
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   QR CENTER
+   ============================================ */
+.qr-container {
+  text-align: center;
+}
+.qr-code-wrapper {
+  display: inline-block;
+  padding: 2rem;
+  background: white;
+  border-radius: 1.5rem;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+}
+.qr-scan-line {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: var(--emerald-mint);
+  box-shadow: 0 0 10px var(--emerald-mint);
+  animation: scanLine 2s ease-in-out infinite;
+  border-radius: 1px;
+}
+@keyframes scanLine {
+  0% {
+    top: 10%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 85%;
+    opacity: 0;
+  }
+}
+.qr-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonial-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem;
+  scrollbar-width: none;
+}
+.testimonial-slider::-webkit-scrollbar {
+  display: none;
+}
+.testimonial-card {
+  min-width: 300px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+.testimonial-card .stars {
+  color: var(--sunset-orange);
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+.testimonial-card .review-text {
+  font-style: italic;
+  color: rgba(248, 250, 252, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.testimonial-card .client-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+.client-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--midnight-lighter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   ANALYTICS
+   ============================================ */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+.analytic-card {
+  text-align: center;
+}
+.analytic-card .analytic-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.analytic-card .analytic-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ice-blue);
+}
+.analytic-card .analytic-label {
+  font-size: 0.75rem;
+  color: rgba(248, 250, 252, 0.5);
+  font-family: var(--font-mono);
+}
+
+/* Progress Ring */
+.progress-ring-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.progress-ring-item {
+  text-align: center;
+}
+.ring-svg {
+  transform: rotate(-90deg);
+}
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 6;
+}
+.ring-fg {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s ease;
+}
+
+/* ============================================
+   CONTACT HUB
+   ============================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  border-color: var(--ice-blue);
+  background: var(--ice-blue-dim);
+}
+.contact-item .contact-item-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--ice-blue-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.contact-form-group {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.contact-form-group input,
+.contact-form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.8rem;
+  color: var(--crystal-white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.contact-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.contact-form-group label {
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
+  font-size: 0.85rem;
+  color: rgba(248, 250, 252, 0.4);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+  border-color: var(--ice-blue);
+  box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.08);
+}
+.contact-form-group input:focus ~ label,
+.contact-form-group textarea:focus ~ label,
+.contact-form-group input:not(:placeholder-shown) ~ label,
+.contact-form-group textarea:not(:placeholder-shown) ~ label {
+  top: -0.5rem;
+  font-size: 0.7rem;
+  background: var(--midnight-light);
+  padding: 0 0.4rem;
+  color: var(--ice-blue);
+  border-radius: 0.3rem;
+}
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+  color: transparent;
+}
+
+/* ============================================
+   SETTINGS PANEL
+   ============================================ */
+.settings-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.settings-option:last-child {
+  border-bottom: none;
+}
+.toggle-switch {
+  width: 50px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.toggle-switch.active {
+  background: var(--emerald-mint);
+}
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: left 0.3s ease;
+}
+.toggle-switch.active::after {
+  left: 25px;
+}
+.color-swatches {
+  display: flex;
+  gap: 0.6rem;
+}
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.color-swatch:hover,
+.color-swatch.active {
+  border-color: white;
+  transform: scale(1.15);
+}
+
+/* ============================================
+   TOAST
+   ============================================ */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.toast {
+  padding: 0.9rem 1.4rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  color: var(--crystal-white);
+  font-size: 0.82rem;
+  font-weight: 500;
+  animation: toastIn 0.4s ease, toastOut 0.4s ease 2.5s forwards;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+@keyframes toastIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes toastOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   CURSOR GLOW
+   ============================================ */
+.cursor-glow {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(125, 211, 252, 0.04) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .digital-card {
+    max-width: 100%;
+  }
+  .portfolio-slide {
+    min-width: 240px;
+  }
+  .testimonial-card {
+    min-width: 260px;
+  }
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .social-icon-item {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .floating-dock {
+    gap: 0.1rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .dock-item {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .card-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Dark/Light Theme */
+body.light {
+  --midnight: #F0F4F8;
+  --midnight-light: #E2E8F0;
+  --midnight-lighter: #CBD5E1;
+  --crystal-white: #1a1a2e;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+body.light .bg-blob {
+  opacity: 0.08;
+}
+</style>
+</head>
+<body>
+
+<!-- Morphing Background Blobs -->
+<div class="bg-blobs">
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+</div>
+
+<!-- Floating Light Orbs -->
+<div class="light-orbs">
+  <div class="light-orb"></div>
+  <div class="light-orb"></div>
+  <div class="light-orb"></div>
+</div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Splash Screen -->
+<div class="splash-screen" id="splashScreen">
+  <div class="splash-logo">N</div>
+  <div class="splash-ring"></div>
+  <p class="splash-text">INITIALIZING IDENTITY</p>
+  <div class="splash-wave"></div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ============================================
+     FLOATING DOCK NAVIGATION
+     ============================================ -->
+<nav class="floating-dock" id="floatingDock">
+  <a href="#card" class="dock-item active" data-section="card">
+    💳<span class="dock-tooltip">Card</span>
+  </a>
+  <a href="#about" class="dock-item" data-section="about">
+    👤<span class="dock-tooltip">About</span>
+  </a>
+  <a href="#services" class="dock-item" data-section="services">
+    ⚡<span class="dock-tooltip">Services</span>
+  </a>
+  <a href="#portfolio" class="dock-item" data-section="portfolio">
+    🎨<span class="dock-tooltip">Portfolio</span>
+  </a>
+  <a href="#social" class="dock-item" data-section="social">
+    🌐<span class="dock-tooltip">Social</span>
+  </a>
+  <a href="#qr" class="dock-item" data-section="qr">
+    📱<span class="dock-tooltip">QR</span>
+  </a>
+  <a href="#contact" class="dock-item" data-section="contact">
+    📧<span class="dock-tooltip">Contact</span>
+  </a>
+  <a href="#settings" class="dock-item" data-section="settings">
+    ⚙️<span class="dock-tooltip">Settings</span>
+  </a>
+</nav>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main class="main-content">
+
+  <!-- DIGITAL CARD SECTION -->
+  <section class="page-section" id="card">
+    <div class="digital-card" id="digitalCard">
+      <div class="card-inner">
+        <div class="profile-ring">
+          <div class="profile-avatar">👨‍💼</div>
+        </div>
+        <h1 class="card-name">Arjun Mehta</h1>
+        <p class="card-role">Product Designer & Developer</p>
+        <p class="card-company">@ DesignStudio India</p>
+        <p class="card-bio">Crafting digital experiences that blend aesthetics with functionality. 8+ years in UI/UX & frontend development.</p>
+        <span class="status-badge status-available">
+          <span class="status-dot"></span> Available for Projects
+        </span>
+        <p class="card-location">📍 Mumbai, India</p>
+        <div class="card-actions">
+          <button class="btn btn-primary ripple" onclick="saveContact()">💾 Save Contact</button>
+          <button class="btn btn-outline ripple btn-magnetic" onclick="shareCard()">📤 Share Card</button>
+          <a href="tel:+919876543210" class="btn btn-outline ripple">📞 Call</a>
+          <a href="mailto:arjun@example.com" class="btn btn-outline ripple">✉️ Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="page-section" id="about">
+    <div class="section-header">
+      <p class="section-eyebrow">// About Me</p>
+      <h2 class="section-title">Who I Am</h2>
+    </div>
+    <div class="glass-card" style="max-width:600px;margin:0 auto;">
+      <p style="color:rgba(248,250,252,0.7);line-height:1.8;">
+        I'm a multidisciplinary designer and developer passionate about creating seamless digital experiences. 
+        With a background in computer science and a keen eye for design, I bridge the gap between 
+        technical implementation and visual storytelling.
+      </p>
+      <div style="display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;">
+        <div><strong style="color:var(--ice-blue);">8+</strong><br><small style="color:rgba(248,250,252,0.5);">Years Exp</small></div>
+        <div><strong style="color:var(--ice-blue);">50+</strong><br><small style="color:rgba(248,250,252,0.5);">Projects</small></div>
+        <div><strong style="color:var(--ice-blue);">30+</strong><br><small style="color:rgba(248,250,252,0.5);">Clients</small></div>
+        <div><strong style="color:var(--ice-blue);">3</strong><br><small style="color:rgba(248,250,252,0.5);">Awards</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="page-section" id="services">
+    <div class="section-header">
+      <p class="section-eyebrow">// What I Do</p>
+      <h2 class="section-title">Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card glass-card">
+        <div class="service-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>User-centered interface design with Figma prototying</p>
+      </div>
+      <div class="service-card glass-card">
+        <div class="service-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Full-stack development with modern frameworks</p>
+      </div>
+      <div class="service-card glass-card">
+        <div class="service-icon">📱</div>
+        <h3>Mobile Apps</h3>
+        <p>Cross-platform mobile application development</p>
+      </div>
+      <div class="service-card glass-card">
+        <div class="service-icon">🚀</div>
+        <h3>Consulting</h3>
+        <p>Technical consulting & digital strategy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section class="page-section" id="portfolio">
+    <div class="section-header">
+      <p class="section-eyebrow">// Featured Work</p>
+      <h2 class="section-title">Portfolio</h2>
+    </div>
+    <div class="portfolio-slider" id="portfolioSlider">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- SOCIAL HUB SECTION -->
+  <section class="page-section" id="social">
+    <div class="section-header">
+      <p class="section-eyebrow">// Connect With Me</p>
+      <h2 class="section-title">Social Hub</h2>
+    </div>
+    <div class="social-grid" id="socialGrid">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- QR CENTER SECTION -->
+  <section class="page-section" id="qr">
+    <div class="section-header">
+      <p class="section-eyebrow">// Instant Connect</p>
+      <h2 class="section-title">QR Code</h2>
+    </div>
+    <div class="qr-container">
+      <div class="qr-code-wrapper" id="qrWrapper">
+        <div style="width:180px;height:180px;background:var(--midnight-lighter);display:flex;align-items:center;justify-content:center;font-size:5rem;">📱</div>
+        <div class="qr-scan-line"></div>
+      </div>
+      <p style="color:rgba(248,250,252,0.5);margin-bottom:1.5rem;">Scan to save my contact</p>
+      <div class="qr-actions">
+        <button class="btn btn-primary ripple" onclick="downloadQR()">📥 Download PNG</button>
+        <button class="btn btn-outline ripple" onclick="copyQRLink()">🔗 Copy Link</button>
+        <button class="btn btn-outline ripple" onclick="shareCard()">📤 Share</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="page-section" id="testimonials">
+    <div class="section-header">
+      <p class="section-eyebrow">// Client Feedback</p>
+      <h2 class="section-title">Testimonials</h2>
+    </div>
+    <div class="testimonial-slider" id="testimonialSlider">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- ANALYTICS SECTION -->
+  <section class="page-section" id="analytics">
+    <div class="section-header">
+      <p class="section-eyebrow">// Card Performance</p>
+      <h2 class="section-title">Analytics</h2>
+    </div>
+    <div class="analytics-grid" id="analyticsGrid">
+      <!-- Generated by JS -->
+    </div>
+    <div class="progress-ring-container" id="progressRings">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- CONTACT HUB SECTION -->
+  <section class="page-section" id="contact">
+    <div class="section-header">
+      <p class="section-eyebrow">// Get In Touch</p>
+      <h2 class="section-title">Contact Hub</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item glass-card" onclick="copyText('+91 98765 43210')">
+        <div class="contact-item-icon">📱</div>
+        <div><strong>Phone</strong><br><small style="color:rgba(248,250,252,0.5);">+91 98765 43210</small></div>
+      </div>
+      <div class="contact-item glass-card" onclick="copyText('arjun@example.com')">
+        <div class="contact-item-icon">✉️</div>
+        <div><strong>Email</strong><br><small style="color:rgba(248,250,252,0.5);">arjun@example.com</small></div>
+      </div>
+      <div class="contact-item glass-card">
+        <div class="contact-item-icon">📍</div>
+        <div><strong>Address</strong><br><small style="color:rgba(248,250,252,0.5);">Mumbai, Maharashtra</small></div>
+      </div>
+      <div class="contact-item glass-card">
+        <div class="contact-item-icon">🕐</div>
+        <div><strong>Business Hours</strong><br><small style="color:rgba(248,250,252,0.5);">Mon-Fri, 9AM-6PM IST</small></div>
+      </div>
+    </div>
+    <form id="contactForm" class="glass-card" style="margin-top:2rem;">
+      <div class="contact-form-group">
+        <input type="text" id="cName" placeholder="Your Name" required>
+        <label for="cName">Your Name</label>
+      </div>
+      <div class="contact-form-group">
+        <input type="email" id="cEmail" placeholder="Your Email" required>
+        <label for="cEmail">Your Email</label>
+      </div>
+      <div class="contact-form-group">
+        <textarea id="cMessage" placeholder="Your Message" required></textarea>
+        <label for="cMessage">Your Message</label>
+      </div>
+      <button type="submit" class="btn btn-primary ripple" style="width:100%;">Send Message ✦</button>
+    </form>
+  </section>
+
+  <!-- SETTINGS SECTION -->
+  <section class="page-section" id="settings">
+    <div class="section-header">
+      <p class="section-eyebrow">// Customize</p>
+      <h2 class="section-title">Settings</h2>
+    </div>
+    <div class="glass-card" style="max-width:500px;margin:0 auto;">
+      <div class="settings-option">
+        <span>Dark Mode</span>
+        <div class="toggle-switch active" id="themeToggle" onclick="toggleTheme()"></div>
+      </div>
+      <div class="settings-option">
+        <span>Animations</span>
+        <div class="toggle-switch active" id="animToggle" onclick="toggleAnimations()"></div>
+      </div>
+      <div class="settings-option">
+        <span>Accent Color</span>
+        <div class="color-swatches">
+          <div class="color-swatch active" style="background:#7DD3FC;" data-accent="ice" onclick="changeAccent('ice')"></div>
+          <div class="color-swatch" style="background:#10B981;" data-accent="emerald" onclick="changeAccent('emerald')"></div>
+          <div class="color-swatch" style="background:#A78BFA;" data-accent="lavender" onclick="changeAccent('lavender')"></div>
+          <div class="color-swatch" style="background:#FB923C;" data-accent="sunset" onclick="changeAccent('sunset')"></div>
+        </div>
+      </div>
+      <div class="settings-option">
+        <span>Language</span>
+        <select style="background:rgba(255,255,255,0.05);border:1px solid var(--glass-border);color:var(--crystal-white);padding:0.4rem 0.8rem;border-radius:0.5rem;font-family:var(--font-body);">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="mr">मराठी</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// ============================================
+// NexaCard - Complete Interactive JavaScript
+// ============================================
+(function() {
+  'use strict';
+
+  // ============ SPLASH SCREEN ============
+  const splashScreen = document.getElementById('splashScreen');
+  setTimeout(() => {
+    splashScreen.classList.add('hidden');
+    document.body.style.overflow = '';
+  }, 2200);
+  document.body.style.overflow = 'hidden';
+
+  // ============ CURSOR GLOW ============
+  const cursorGlow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+  });
+
+  // ============ 3D DIGITAL CARD TILT ============
+  const digitalCard = document.getElementById('digitalCard');
+  if (digitalCard) {
+    digitalCard.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / centerY * -12;
+      const rotateY = (x - centerX) / centerX * 12;
+      this.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    digitalCard.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(1200px) rotateX(0) rotateY(0)';
+    });
+  }
+
+  // ============ RIPPLE EFFECT ============
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('.ripple');
+    if (!target) return;
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple-effect';
+    const rect = target.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    target.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+  });
+
+  // ============ MAGNETIC BUTTONS ============
+  document.querySelectorAll('.btn-magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      this.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+
+  // ============ TOAST SYSTEM ============
+  const toastContainer = document.getElementById('toastContainer');
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // ============ PORTFOLIO SLIDER ============
+  const portfolioData = [
+    { name: 'E-Commerce Platform', desc: 'Full-stack marketplace', tech: ['React', 'Node.js', 'MongoDB'], icon: '🛒' },
+    { name: 'SaaS Dashboard', desc: 'Analytics dashboard', tech: ['Vue.js', 'Python', 'PostgreSQL'], icon: '📊' },
+    { name: 'Healthcare App', desc: 'Telemedicine solution', tech: ['Flutter', 'Firebase', 'Node.js'], icon: '🏥' },
+    { name: 'FinTech Wallet', desc: 'Digital payment app', tech: ['React Native', 'AWS', 'Stripe'], icon: '💳' }
+  ];
+
+  const portfolioSlider = document.getElementById('portfolioSlider');
+  portfolioData.forEach(item => {
+    const slide = document.createElement('div');
+    slide.className = 'portfolio-slide glass-card';
+    slide.innerHTML = `
+      <div class="slide-img">${item.icon}</div>
+      <h3>${item.name}</h3>
+      <p style="color:rgba(248,250,252,0.5);font-size:0.85rem;">${item.desc}</p>
+      <div class="slide-tech">
+        ${item.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+      </div>
+    `;
+    slide.addEventListener('click', () => showToast(`Opening ${item.name}...`));
+    portfolioSlider.appendChild(slide);
+  });
+
+  // ============ SOCIAL HUB ============
+  const socialData = [
+    { name: 'GitHub', icon: '🐙', url: '#' },
+    { name: 'LinkedIn', icon: '💼', url: '#' },
+    { name: 'Twitter', icon: '🐦', url: '#' },
+    { name: 'Instagram', icon: '📷', url: '#' },
+    { name: 'Facebook', icon: '👤', url: '#' },
+    { name: 'YouTube', icon: '▶️', url: '#' },
+    { name: 'Telegram', icon: '✈️', url: '#' },
+    { name: 'Discord', icon: '🎮', url: '#' },
+    { name: 'Medium', icon: '📝', url: '#' },
+    { name: 'Website', icon: '🌐', url: '#' }
+  ];
+
+  const socialGrid = document.getElementById('socialGrid');
+  socialData.forEach(social => {
+    const item = document.createElement('a');
+    item.className = 'social-icon-item';
+    item.href = social.url;
+    item.target = '_blank';
+    item.innerHTML = `
+      ${social.icon}
+      <span class="social-tooltip">${social.name}</span>
+    `;
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast(`Visiting ${social.name}...`);
+    });
+    socialGrid.appendChild(item);
+  });
+
+  // ============ TESTIMONIALS ============
+  const testimonialData = [
+    { name: 'Priya Sharma', company: 'TechCorp', rating: 5, review: 'Arjun delivered exceptional work. The attention to detail and creative approach made our project stand out.', avatar: '👩‍💼' },
+    { name: 'Rahul Gupta', company: 'StartUpHub', rating: 5, review: 'Best designer I\'ve worked with. Transformed our vision into a beautiful, functional product.', avatar: '👨‍💻' },
+    { name: 'Sneha Patel', company: 'DesignLabs', rating: 4, review: 'Professional, timely, and highly skilled. Would definitely recommend for UI/UX projects.', avatar: '👩‍🎨' }
+  ];
+
+  const testimonialSlider = document.getElementById('testimonialSlider');
+  testimonialData.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card glass-card';
+    card.innerHTML = `
+      <div class="stars">${'⭐'.repeat(t.rating)}</div>
+      <p class="review-text">"${t.review}"</p>
+      <div class="client-info">
+        <div class="client-avatar">${t.avatar}</div>
+        <div>
+          <strong>${t.name}</strong><br>
+          <small style="color:rgba(248,250,252,0.5);">${t.company}</small>
+        </div>
+      </div>
+    `;
+    testimonialSlider.appendChild(card);
+  });
+
+  // Auto-scroll testimonials
+  let testimonialScrollPos = 0;
+  setInterval(() => {
+    if (testimonialSlider.scrollWidth > testimonialSlider.clientWidth) {
+      testimonialScrollPos += 320;
+      if (testimonialScrollPos >= testimonialSlider.scrollWidth) testimonialScrollPos = 0;
+      testimonialSlider.scrollTo({ left: testimonialScrollPos, behavior: 'smooth' });
+    }
+  }, 3500);
+
+  // ============ ANALYTICS ============
+  const analyticsData = [
+    { icon: '👁️', value: '1,247', label: 'Total Visitors' },
+    { icon: '📱', value: '342', label: 'QR Scans' },
+    { icon: '💾', value: '89', label: 'Contact Saves' },
+    { icon: '🔗', value: '456', label: 'Link Clicks' },
+    { icon: '🎨', value: '178', label: 'Portfolio Visits' }
+  ];
+
+  const analyticsGrid = document.getElementById('analyticsGrid');
+  analyticsData.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'analytic-card glass-card';
+    card.innerHTML = `
+      <div class="analytic-icon">${a.icon}</div>
+      <div class="analytic-value counter" data-target="${parseInt(a.value.replace(',',''))}">0</div>
+      <div class="analytic-label">${a.label}</div>
+    `;
+    analyticsGrid.appendChild(card);
+  });
+
+  // Progress Rings
+  const ringData = [
+    { label: 'Engagement', percent: 78, color: '#7DD3FC' },
+    { label: 'Conversion', percent: 45, color: '#10B981' },
+    { label: 'Return Rate', percent: 62, color: '#A78BFA' }
+  ];
+
+  const progressRings = document.getElementById('progressRings');
+  ringData.forEach(ring => {
+    const circumference = 2 * Math.PI * 40;
+    const offset = circumference - (ring.percent / 100) * circumference;
+    const item = document.createElement('div');
+    item.className = 'progress-ring-item';
+    item.innerHTML = `
+      <svg width="100" height="100" class="ring-svg">
+        <circle class="ring-bg" cx="50" cy="50" r="40"></circle>
+        <circle class="ring-fg" cx="50" cy="50" r="40"
+          stroke="${ring.color}"
+          stroke-dasharray="${circumference}"
+          stroke-dashoffset="${circumference}"
+          data-offset="${offset}">
+        </circle>
+      </svg>
+      <div style="margin-top:0.5rem;font-weight:600;">${ring.label}</div>
+      <div style="color:${ring.color};font-size:1.2rem;font-weight:700;">${ring.percent}%</div>
+    `;
+    progressRings.appendChild(item);
+  });
+
+  // Animate rings on scroll
+  const ringObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.ring-fg').forEach(circle => {
+          circle.style.strokeDashoffset = circle.getAttribute('data-offset');
+        });
+        ringObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  if (progressRings) ringObserver.observe(progressRings);
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.counter').forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const update = () => {
+        current += step;
+        if (current < target) {
+          counter.textContent = Math.floor(current).toLocaleString();
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      };
+      update();
+    });
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+
+  // ============ CONTACT FORM ============
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    showToast('✨ Message sent successfully!');
+    this.reset();
+  });
+
+  // ============ GLOBAL FUNCTIONS ============
+  window.saveContact = function() {
+    showToast('💾 Contact saved to your device!');
+  };
+  window.shareCard = function() {
+    if (navigator.share) {
+      navigator.share({ title: 'NexaCard - Arjun Mehta', url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('🔗 Card link copied!');
+      });
+    }
+  };
+  window.downloadQR = function() {
+    showToast('📥 QR Code downloaded!');
+  };
+  window.copyQRLink = function() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      showToast('🔗 QR link copied!');
+    });
+  };
+  window.copyText = function(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('📋 Copied to clipboard!');
+    });
+  };
+
+  // ============ THEME TOGGLE ============
+  window.toggleTheme = function() {
+    document.body.classList.toggle('light');
+    const toggle = document.getElementById('themeToggle');
+    toggle.classList.toggle('active');
+    showToast(document.body.classList.contains('light') ? '☀️ Light mode' : '🌙 Dark mode');
+  };
+
+  // ============ ANIMATION TOGGLE ============
+  window.toggleAnimations = function() {
+    const toggle = document.getElementById('animToggle');
+    toggle.classList.toggle('active');
+    if (toggle.classList.contains('active')) {
+      document.documentElement.style.setProperty('--anim-duration', '1');
+      showToast('✨ Animations enabled');
+    } else {
+      document.documentElement.style.setProperty('--anim-duration', '0');
+      showToast('🚫 Animations disabled');
+    }
+  };
+
+  // ============ ACCENT COLOR CHANGE ============
+  window.changeAccent = function(color) {
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-accent="${color}"]`).classList.add('active');
+    const colorMap = {
+      ice: '#7DD3FC',
+      emerald: '#10B981',
+      lavender: '#A78BFA',
+      sunset: '#FB923C'
+    };
+    document.documentElement.style.setProperty('--ice-blue', colorMap[color]);
+    showToast(`🎨 Accent changed to ${color}`);
+  };
+
+  // ============ DOCK ACTIVE STATE ============
+  const sections = document.querySelectorAll('.page-section');
+  const dockItems = document.querySelectorAll('.dock-item[data-section]');
+
+  window.addEventListener('scroll', () => {
+    let current = 'card';
+    sections.forEach(section => {
+      const top = section.offsetTop - 150;
+      if (window.scrollY >= top) {
+        current = section.getAttribute('id');
+      }
+    });
+    dockItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('data-section') === current) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // Smooth scroll for dock
+  dockItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('data-section'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ============ KEYBOARD SHORTCUTS ============
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      const qr = document.getElementById('qr');
+      if (qr) qr.scrollIntoView({ behavior: 'smooth' });
+      showToast('📱 Jumped to QR Code');
+    }
+  });
+
+  // ============ INITIALIZE ============
+  console.log('%c💳 NexaCard %cDigital Identity Ready',
+    'font-size:1.5rem;color:#7DD3FC;font-weight:bold;',
+    'color:#A78BFA;');
+  console.log('%cPress Ctrl+K to jump to QR Code', 'color:#FB923C;');
+  console.log('%c"Your Identity. One Tap. Infinite Connections."', 'color:#10B981;font-style:italic;');
+
+  // Initial counter animation trigger
+  setTimeout(animateCounters, 2500);
+
+})();
+</script>
+
+</body>
+</html>
